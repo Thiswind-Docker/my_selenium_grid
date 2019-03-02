@@ -9,7 +9,7 @@ def test_chrome():
     desired_capabilities['platform'] = 'LINUX'
  
     #Using Remote connection to connect to aws grid - Used manager ip
-    url = "http://113.55.14.53:4444/wd/hub"
+    url = "http://localhost:4444/wd/hub"
     driver  = webdriver.Remote(url, desired_capabilities)
  
     #Checking the driver session
