@@ -5,14 +5,17 @@ version: '3.7'
 
 services:
   hub:
-   image: selenium/hub:3.141.59-iron
-   ports:
-     - "4444:4444"
+    image: selenium/hub:3.141.59-iron
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+    ports:
+      - "4444:4444"
 
   chrome:
     image: selenium/node-chrome:3.141.59-iron
     volumes:
       - /dev/shm:/dev/shm
+      - /etc/timezone:/etc/timezone:ro
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
@@ -24,6 +27,7 @@ services:
     image: selenium/node-firefox:3.141.59-iron
     volumes:
       - /dev/shm:/dev/shm
+      - /etc/timezone:/etc/timezone:ro
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
@@ -37,6 +41,7 @@ services:
       - 5900:5900
     volumes:
       - /dev/shm:/dev/shm
+      - /etc/timezone:/etc/timezone:ro
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
