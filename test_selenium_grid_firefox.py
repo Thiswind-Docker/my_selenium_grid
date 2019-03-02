@@ -1,4 +1,4 @@
-'''Test for launching qxf2.com in AWS machine through grid'''
+'''Test for launching baidu.com in AWS machine through grid'''
  
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -15,8 +15,8 @@ def test_firefox():
     #Checking the driver session
     print (driver)
  
-    #Launch qxf2 and print title
-    driver.get("http://www.qxf2.com")
+    #Launch baidu and print title
+    driver.get("http://www.baidu.com")
  
     print (driver.title)
     driver.quit()
