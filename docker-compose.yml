@@ -1,4 +1,3 @@
-tart Docker in Swarm mode, you need to run `docker swarm init`
 # To deploy the Grid, `docker stack deploy -c docker-compose.yml grid`
 # Stop with `docker stack rm grid`
 
