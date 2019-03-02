@@ -10,23 +10,39 @@ services:
      - "4444:4444"
 
   chrome:
-    image: selenium/node-chrome-debug:3.141.59-iron
+    image: selenium/node-chrome:3.141.59-iron
     volumes:
       - /dev/shm:/dev/shm
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
     deploy:
-        replicas: 1
+      replicas: 1
     entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
 
   firefox:
-    image: selenium/node-firefox-debug:3.141.59-iron
+    image: selenium/node-firefox:3.141.59-iron
     volumes:
       - /dev/shm:/dev/shm
     environment:
       HUB_HOST: hub
       HUB_PORT: 4444
     deploy:
-        replicas: 1
+      replicas: 1
     entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
+
+  chrome-debug:
+    image: selenium/node-chrome-debug:3.141.59-iron
+    ports:
+      - 5900:5900
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      HUB_HOST: hub
+      HUB_PORT: 4444
+    deploy:
+      replicas: 1
+      placement:
+          constraints: [node.role == manager ]
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
+
