@@ -38,7 +38,7 @@ services:
       - main
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 5
       labels:
         selenium.grid.type: "node"
         selenium.grid.node: "true"
@@ -65,7 +65,7 @@ services:
       - main
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 5
       labels:
         selenium.grid.type: "node"
         selenium.grid.node: "true"
