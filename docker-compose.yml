@@ -36,7 +36,7 @@ services:
     entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
 
   chrome-debug:
-    image: selenium/node-chrome-debug:3.141.59-iron
+    image: thiswind/selenium-chrome-debug:latest 
     ports:
       - 5900:5900
     volumes:
